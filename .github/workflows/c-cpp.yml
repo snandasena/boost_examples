@@ -21,6 +21,9 @@ jobs:
           sudo apt-get install -y python3-pip
           pip3 install conan
 
+      - name: Create Conan profile
+        run: conan profile detect
+
       - name: Install dependencies with Conan
         run: conan install . --build=missing
 
