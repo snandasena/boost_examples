@@ -1,10 +1,10 @@
-name: C/C++ CI
+name: C++ CI with Conan
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -12,12 +12,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Conan
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-pip
+          pip3 install conan
+
+      - name: Install dependencies with Conan
+        run: conan install . --build=missing
+
+      - name: Build the project
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+          cmake --build .
+
+      - name: Run tests
+        run: |
+          cd build
+          ctest
