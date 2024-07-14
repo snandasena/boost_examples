@@ -1,0 +1,11 @@
+[requires]
+boost/1.85.0
+asio/1.24.0
+
+[generators]
+CMakeDeps
+CMakeToolchain
+
+[layout]
+cmake_layout
+
