@@ -29,10 +29,8 @@ jobs:
 
       - name: Build the project
         run: |
-          mkdir build
-          cd build
-          cmake ..
-          cmake --build .
+          cmake --preset conan-release
+          cmake --build --preset conan-release
 
       - name: Run tests
         run: |
