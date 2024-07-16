@@ -18,11 +18,36 @@ int main()
     const auto adress = net::ip::make_address("0.0.0.0");
     const auto port = 3000u;
     const auto doc_root = "/"; 
-    const auto threads = 1;
+    
 
     net::io_context ioc;
-
     boost::make_shared<listener>(ioc, tcp::endpoint{address, port}, boost::make_shared<shared_state>(doc_root))->run();
 
+    net::signal_set signals(ioc, SIGINT, SIGTERM);
+    signals.async_wait([&ioc](boost::system::error_code const&, int)
+    {
+        ioc.stop();
+    });
 
+    std::vector<std::threads> v;
+    const auto threads = 4;
+
+    v.reserve(threads -1);
+
+    for(auto i = threads -1; i > 0; --i)
+    {
+        v.emplace_back([&ioc]()
+        {
+            ioc.run();
+        });
+    }
+
+    ioc.run();
+
+    for(auto &t: v)
+    {
+        t.join();
+    }
+
+    return 0;
 }
