@@ -56,12 +56,13 @@ http::message_generator handle_request(beast::string_view doc_root,
 
     std::string path = path_cat(doc_root, req.target());
 
+    std::cout << "PATH : " << path << std::endl;
     if (req.target().back() == '/')
         path.append("index.html");
 
     beast::error_code ec;
     http::file_body::value_type body;
-    body.open(path.c_str(), beast::file_mode::scan, ec);
+    body.open("index.html", beast::file_mode::scan, ec);
 
     if (ec == boost::system::errc::no_such_file_or_directory)
         return not_found(req.target());

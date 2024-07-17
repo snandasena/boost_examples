@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.29)
 project(BoostExamples)
+
+
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -16,3 +18,5 @@ add_executable(BoostExamples main.cpp)
 add_subdirectory(server)
 add_subdirectory(client)
 add_subdirectory(chatapp)
+add_subdirectory(ssl)
+add_subdirectory(common)
