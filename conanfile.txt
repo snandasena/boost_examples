@@ -1,6 +1,7 @@
 [requires]
 boost/1.85.0
 asio/1.24.0
+openssl/3.2.2
 
 [generators]
 CMakeDeps
