@@ -4,6 +4,8 @@
 
 #include "session.h"
 
+#include <utils/ignore_unused.h>
+
 session::session(tcp::socket &&socket, ssl::context &ctx): ws_(std::move(socket), ctx)
 {
 }

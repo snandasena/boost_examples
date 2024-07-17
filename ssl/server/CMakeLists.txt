@@ -5,8 +5,6 @@ find_package(Asio REQUIRED)
 find_package(OpenSSL REQUIRED)
 
 file(GLOB SSL_SERVER_FILE
-        src/common.h
-        src/ignore_unused.h
         src/session.h
         src/session.cpp
         src/listener.h

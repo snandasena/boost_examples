@@ -5,8 +5,6 @@
 #ifndef COMMON_H
 #define COMMON_H
 
-#include "ignore_unused.h"
-
 #include <boost/beast/core.hpp>
 #include <boost/beast/websocket.hpp>
 #include <boost/beast/websocket/ssl.hpp>
@@ -27,11 +25,6 @@ namespace websocket = beast::websocket; // from <boost/beast/websocket.hpp>
 namespace net = boost::asio; // from <boost/asio.hpp>
 namespace ssl = boost::asio::ssl; // from <boost/asio/ssl.hpp>
 using tcp = boost::asio::ip::tcp; // from <boost/asio/ip/tcp.hpp>
-
-void fail(beast::error_code ec, char const *what)
-{
-    std::cerr << what << " : " << ec.message() << std::endl;
-}
 
 
 #endif //COMMON_H

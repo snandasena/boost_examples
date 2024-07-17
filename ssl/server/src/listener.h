@@ -5,12 +5,12 @@
 #ifndef LISTENER_H
 #define LISTENER_H
 
-#include "common.h"
+#include <utils/common.h>
 
 class listener : public std::enable_shared_from_this<listener>
 {
-    net::io_context& ioc_;
-    ssl::context& ctx_;
+    net::io_context &ioc_;
+    ssl::context &ctx_;
     tcp::acceptor acceptor_;
 
 public:
