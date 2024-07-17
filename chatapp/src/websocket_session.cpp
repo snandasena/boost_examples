@@ -42,6 +42,7 @@ void websocket_session::on_read(beast::error_code ec, std::size_t)
     if (ec)
         return fail(ec, "read");
 
+    std::cout<<beast::make_printable(buffer_.data())<<std::endl;
     // send to all connections
     state_->send(beast::buffers_to_string(buffer_.data()));
     // clear the buffer
