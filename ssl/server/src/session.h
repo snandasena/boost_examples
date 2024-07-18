@@ -5,7 +5,7 @@
 #ifndef SESSION_H
 #define SESSION_H
 
-#include <utils/error.h>
+#include <utils/common.h>
 
 class session : public std::enable_shared_from_this<session>
 {

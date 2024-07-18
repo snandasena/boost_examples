@@ -15,7 +15,7 @@ int main()
 
     net::io_context ioc{threads};
 
-    ssl::context ctx{ssl::context::tlsv12};
+    ssl::context ctx{ssl::context::tlsv13};
 
     load_server_certificate(ctx);
 
