@@ -5,6 +5,8 @@
 #include "listener.h"
 #include "session.h"
 
+#include <utils/error.h>
+
 listener::listener(net::io_context &ioc, ssl::context &ctx, tcp::endpoint endpoint) : ioc_(ioc), ctx_(ctx),
                                                                                       acceptor_(net::make_strand(ioc))
 {

@@ -7,7 +7,7 @@
 
 #include "common.h"
 
-void fail(beast::error_code ec, char const *what)
+ inline void fail(beast::error_code ec, char const *what)
 {
     std::cerr << what << " : " << ec.message() << std::endl;
 }
