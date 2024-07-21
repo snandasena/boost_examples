@@ -4,7 +4,6 @@
 
 #include "session.h"
 
-#include <utils/common.h>
 #include <certs/root_certificate.h>
 
 int main()
