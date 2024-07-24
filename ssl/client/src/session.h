@@ -8,7 +8,7 @@
 #include <utils/common.h>
 
 
-class session : std::enable_shared_from_this<session>
+class session : public std::enable_shared_from_this<session>
 {
     tcp::resolver resolver_;
     websocket::stream<ssl::stream<beast::tcp_stream> > ws_;
