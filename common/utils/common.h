@@ -5,6 +5,10 @@
 #ifndef COMMON_H
 #define COMMON_H
 
+
+#include <boost/asio/as_tuple.hpp>
+#include <boost/asio/awaitable.hpp>
+#include <boost/asio/co_spawn.hpp>
 #include <boost/beast/core.hpp>
 #include <boost/beast/websocket.hpp>
 #include <boost/beast/websocket/ssl.hpp>
